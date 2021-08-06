@@ -1,0 +1,13 @@
+---
+- name: Configuring mariaDB
+  mysql_user:
+    name: wiki
+    password: 1THISpasswordSHOULDbeCHANGED
+    priv: '*.*:ALL'
+    host: localhost
+    state: present
+
+- name: Creating new database
+  mysql_db:
+    name: wikidatabase
+    state: present

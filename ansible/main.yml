@@ -1,0 +1,31 @@
+---
+- name: Setup MediaWiki on EC2 instance
+  hosts: all
+  become: yes
+  tasks:
+    - import_tasks: install.yml
+    - import_tasks: services.yml
+    - import_tasks: mariadb-config.yml
+
+    - name: Untar .tar.gz ball
+      unarchive:
+        src: https://releases.wikimedia.org/mediawiki/1.24/mediawiki-1.24.2.tar.gz
+        dest: /tmp/
+        remote_src: true
+
+    - name: Moving extracted directory
+      shell: mv /tmp/mediawiki-1.24.2 /var/www/html/mediawiki
+
+    - name: Changing ownership
+      shell: chown -R apache:apache /var/www/html/mediawiki/
+
+    - name: Changing permission
+      shell: chmod 755 /var/www/html/mediawiki/
+
+    - name: Configuring selinux policy
+      shell: restorecon -FR /var/www/html/mediawiki/
+
+    - name: Restarting httpd service
+      service:
+        name: httpd
+        state: restarted

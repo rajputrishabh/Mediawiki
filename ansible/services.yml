@@ -1,0 +1,10 @@
+---
+    - name: Enabling httpd service
+      service:
+        name: httpd
+        state: started
+
+    - name: Enabling mariadb service
+      service:
+        name: mariadb
+        state: started
