@@ -1,6 +1,6 @@
-This repository will help you install Mediawiki on AWS in fully automated fashion using Terraforma, AWS cli and Ansible.
+This repository will help you setup Mediawiki on AWS EC2 instance in fully automated fashion using Terraforma, AWS cli and Ansible.
 
-Terraform is responsible for provisioning infrastructure on AWS while Ansible helps install Mediawiki.
+Terraform is responsible for provisioning infrastructure on AWS while Ansible helps setup Mediawiki.
 
 How to Execute Terrform Scripts - 
 
