@@ -37,4 +37,4 @@ Once terraform apply is run, make sure to check the progress in terminal. Terraf
 
 Post completion of terraform apply, you will get public IP as output. Please copy it and open in browser.
 
-URL will be http://<public-IP>/mediawiki
+URL will be **http://public-IP/mediawiki
